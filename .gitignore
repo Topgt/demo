@@ -1,0 +1,4 @@
+# 添加忽略掉得文件
+*.project
+node_modules/
+*.o
