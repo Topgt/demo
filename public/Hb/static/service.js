@@ -10,6 +10,7 @@
 
 define(["login"],
 	function() {
+		var i = 0;
 		var LoginModel = (function(model) {
 			model.prototype.type = "post";
 			model.prototype.url = {
@@ -21,6 +22,18 @@ define(["login"],
 				loginPwd: 'pwd'
 			};
 			return model;
-		}(arguments[0]));
+		}(arguments[i]));
+		i += 1;
 	}
 )
+
+//require(["html!some/module.html"],
+//  function(html) {
+//      console.log(html); // documentFragment
+//      document.body.appendChild(html);
+//      console.log(html); // empty documentFragment
+//      html.stash(); // documentFragment restored
+//      console.log(html.path) // some/module.html
+//      console.log(html.source) // source code from some/module.html
+//  }
+//);

@@ -1,34 +1,26 @@
 define(["jquery", "messageltip"], function($, MessageModel) {
 	console.log("导入了login.js模块");
-	if(!$('#Messageltip').length){
-		$('body').append($('<div></div>').load('../../components/messagetip/messageltip.html'));
-	} 
 	function LoginModel() {
 		this.$model = $('#login');
 	}
 	LoginModel.prototype.constructor = "LoginModel";
-	LoginModel.prototype.checkLogin = function() {	
-		var name = this.fielMap.loginName;
-		var pwd = this.fielMap.loginPwd;
-		var url = this.url.checkLogin;
-		var type = this.type;
-		
+	LoginModel.prototype.checkLogin = function() {		
 		var namevalue = this.$model.find('input[name="userName"]').val();
 		var pwdvalue = this.$model.find('input[name="userPassword"]').val();
 		
 		if(!namevalue){
 			var msgmodel = new MessageModel();
-			msgmodel.show(name);
+			msgmodel.show('提示信息');
 			console.log("用户名为空");
 		}
+		var data = {};
+		data[this.fielMap.loginName] = namevalue;
+		data[this.fielMap.loginPwd] = pwdvalue;
 		$.when(
 			$.ajax({
-				type: type,
-				url: url,
-				data: {
-					name: namevalue,
-					pwd: pwdvalue
-				},
+				type: this.type,
+				url: this.url.checkLogin,
+				data: data,
 				async: true
 			})
 		).done(function(result){

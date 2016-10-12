@@ -1,8 +1,9 @@
 require.config({
-	baseUrl: "http://127.0.0.1:8020/demo/public/Hb/static",
+	baseUrl: "../../static",
 	map: {
 		"*": {
-			"css": ["./css.min"]
+			"css": ["./require-css.min"],
+			"text": ["./require-text"]
 		}
 	},
 	paths: {
@@ -10,7 +11,7 @@ require.config({
 		"bootstrap": ["./bootstrap-3.3.5-dist/js/bootstrap.min"],
 		"login": ["../views/login/login"],
 		"service": ["./service"],
-		"messageltip": ["../components/messagetip/messageltip"]
+		"messageltip": ["../components/messagetip/messageltip"],
 	},
 	waitSeconds: 0,
 	shim: {
@@ -26,9 +27,10 @@ require.config({
 		},
 		"messageltip": {
 			deps: [
+				"css!../components/messagetip/messageltip.css",
 				"jquery",
-				"bootstrap",
-				"css!../components/messagetip/messageltip.css"
+				"bootstrap"
+
 			],
 			exports: 'messageltip'
 		}
