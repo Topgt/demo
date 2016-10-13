@@ -7,10 +7,12 @@ require.config({
 		}
 	},
 	paths: {
+//		"jquery" : ["http://libs.baidu.com/jquery/2.0.3/jquery"],
 		"jquery": ["./jquery/jquery-2.1.4.min"],
 		"bootstrap": ["./bootstrap-3.3.5-dist/js/bootstrap.min"],
 		"login": ["../views/login/login"],
 		"service": ["./service"],
+		"Events": ["./Events"],
 		"messageltip": ["../components/messagetip/messageltip"],
 	},
 	waitSeconds: 0,

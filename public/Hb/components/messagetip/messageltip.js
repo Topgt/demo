@@ -1,4 +1,4 @@
-define(["text!../components/messagetip/messageltip.html"], function(html) {
+define(["text!../components/messagetip/messageltip.html", "Events"], function(html, Events) {
 	function MessageModel(opt) {
 		var Imgurl = window.location.pathname;
 			Imgurl = Imgurl.slice(0, Imgurl.indexOf('/Hb/'));
