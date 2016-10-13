@@ -5,14 +5,14 @@ require.config({
 	},
 	paths: {
 		//		"jquery" : ["http://libs.baidu.com/jquery/2.0.3/jquery"],
-		"css": ["./require-css"],
-		"text": ["./require-text"],
+		"css": ["./lib/require-css"],
+		"text": ["./lib/require-text"],
 		"jquery": ["./jquery/jquery-2.1.4.min"],
 		"bootstrap": ["./bootstrap-3.3.5-dist/js/bootstrap.min"],
-		"login": ["../views/login/login"],
+		"login": ["../views/login/js/login"],
 		"service": ["./service"],
-		"Events": ["./Events"],
-		"messageltip": ["../components/messagetip/messageltip"]
+		"Events": ["./utils/Events"],
+		"messageltip": ["../components/messagetip/js/messageltip"]
 	},
 	waitSeconds: 0,
 	shim: {

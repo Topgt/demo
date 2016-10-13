@@ -4,7 +4,7 @@ define([
 	],
 	function(html, Events) {
 		//css的依赖必须放到回调中导入，否则r.js压缩会错误
-		require(["css!./bootstrap-3.3.5-dist/css/bootstrap.min.css", "css!../components/messagetip/messageltip.css"]);
+		require(["css!./bootstrap-3.3.5-dist/css/bootstrap.min.css", "css!../components/messagetip/css/messageltip.css"]);
 		function MessageModel(opt) {
 			var Imgurl = window.location.pathname;
 			Imgurl = Imgurl.slice(0, Imgurl.indexOf('/Hb/'));
