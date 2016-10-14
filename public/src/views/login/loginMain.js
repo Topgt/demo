@@ -7,11 +7,11 @@ require.config({
 		//		"jquery" : ["http://libs.baidu.com/jquery/2.0.3/jquery"],
 		"css": ["./lib/require-css"],
 		"text": ["./lib/require-text"],
+		"service": ["./service"],
+		"Events": ["./utils/Events"],
 		"jquery": ["./jquery/jquery-2.1.4.min"],
 		"bootstrap": ["./bootstrap-3.3.5-dist/js/bootstrap.min"],
 		"login": ["../views/login/js/login"],
-		"service": ["./service"],
-		"Events": ["./utils/Events"],
 		"messageltip": ["../components/messagetip/js/messageltip"]
 	},
 	waitSeconds: 0,
@@ -34,7 +34,6 @@ require.config({
 			exports: 'messageltip'
 		}
 	}
-
 });
 
 require(["service"], function() {
