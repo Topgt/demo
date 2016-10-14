@@ -1,10 +1,7 @@
 var gulp = require('gulp');
 
-var concat = require('gulp-concat'); //文件合并
 var jshint = require('gulp-jshint'); //js语法规范检查
-var uglify = require('gulp-uglify'); //压缩js
-var rename = require('gulp-rename'); //文件重命名
-var amdOptimize = require('amd-optimize'); //require优化
+var browserSync = require('browser-sync').create();
 var watch = require('gulp-watch');
 //var reqjsConfing = require('./reqjsConfing');  
 
@@ -14,18 +11,17 @@ gulp.task('hellow', function() {
 
 //脚本检查
 gulp.task('jshint', function() {
-	gulp.src("./public/Hb/**/*.js")
+	gulp.src("./public/src/**/*.js")
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));
 });
 
-//require合并任务
-gulp.task('rjs', function() {
-	gulp.src(["./public/Hb/**/*.js"])
-		.pipe(amdOptimize("loginMain"))
-		.pipe(concat("login.js"))
-		.pipe(gulp.dest('./public/dist/js'))
-		.pipe(rename("login.min.js"))
-		.pipe(uglify())
-		.pipe(gulp.dest('./public/dist/js'));
+gulp.task('browserSync', function(){
+	return browserSync.init({
+		port: '3004',
+		proxy: 'http://localhost:3000/src/views/login/login.html'
+	});
+	gulp.watch('.public/src/**').on('change', browserSync.reload);
 });
+
+
