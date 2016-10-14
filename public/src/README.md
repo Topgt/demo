@@ -25,7 +25,7 @@
 #### 注意事项 ####
 > 模块化的的目的是“分治” 不是“代码重复使用”，	
 > 一个页面的模块写在src/views/modelName 文件夹中，涉及到src路径写正常项目路径。	
-> src/components/modelName 文件夹中，涉及到src路径要写全项目路径，例如src=/Hb/components/messagetip/img/imgName.png	
+> src/components/modelName 文件夹中，涉及到src路径要写全项目路径，例如src=/components/messagetip/img/imgName.png	
 > 因为页面js分为不同的模块写在不同的js文件中。所以模块之间需要传值 可是有提供的 Events.js 提供的事件-回调的方式进行。	
 > 再service.js中提供了模块远端接口的统一配置，建议通过该模块配置。 
 

@@ -1,17 +1,18 @@
 require.config({
 	baseUrl: "../../static",
 	map: {
-		"*": {
-			"css": ["./require-css.min"],
-			"text": ["./require-text"]
-		}
+		"*": {}
 	},
 	paths: {
+		//		"jquery" : ["http://libs.baidu.com/jquery/2.0.3/jquery"],
+		"css": ["./lib/require-css"],
+		"text": ["./lib/require-text"],
+		"service": ["./service"],
+		"Events": ["./utils/Events"],
 		"jquery": ["./jquery/jquery-2.1.4.min"],
 		"bootstrap": ["./bootstrap-3.3.5-dist/js/bootstrap.min"],
-		"login": ["../views/login/login"],
-		"service": ["./service"],
-		"messageltip": ["../components/messagetip/messageltip"],
+		"login": ["../views/login/js/login"],
+		"messageltip": ["../components/messagetip/js/messageltip"]
 	},
 	waitSeconds: 0,
 	shim: {
@@ -20,14 +21,12 @@ require.config({
 		},
 		"bootstrap": {
 			deps: [
-				"jquery",
-				"css!./bootstrap-3.3.5-dist/css/bootstrap.min.css"
+				"jquery"
 			],
 			exports: 'bootstrap'
 		},
 		"messageltip": {
 			deps: [
-				"css!../components/messagetip/messageltip.css",
 				"jquery",
 				"bootstrap"
 
@@ -35,7 +34,6 @@ require.config({
 			exports: 'messageltip'
 		}
 	}
-
 });
 
 require(["service"], function() {
@@ -43,5 +41,5 @@ require(["service"], function() {
 		var model = new Model();
 		model.lanch();
 		console.log("require ok");
-	})
-})
+	});
+});
