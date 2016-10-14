@@ -41,5 +41,5 @@ require(["service"], function() {
 		var model = new Model();
 		model.lanch();
 		console.log("require ok");
-	})
-})
+	});
+});

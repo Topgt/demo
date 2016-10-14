@@ -24,7 +24,7 @@ define([
 
 		MessageModel.prototype.constructor = "MessageModel";
 		MessageModel.prototype.setTxt = function(txt) {
-			this.model.find('.txt').html(txt)
+			this.model.find('.txt').html(txt);
 		};
 		MessageModel.prototype.setPoint = function(xx, yy) {
 			var x = xx || 'auto';
@@ -40,4 +40,4 @@ define([
 		};
 
 		return MessageModel;
-	})
+	});
