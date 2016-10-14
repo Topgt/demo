@@ -7,7 +7,12 @@
 		include: [
 			"jquery", "messageltip", "Events"
 		]
-	}],
+	}/*, {
+		name: "../views/login/othenMain",
+		include: [
+			"jquery", "messageltip", "Events"
+		]
+	}*/],
 	removeCombined: true, //如果为true，将从输出目录中删除已合并的文件
 	paths: {
 		"css": "./lib/require-css",
@@ -17,7 +22,7 @@
 		"login": "../views/login/js/login",
 		"service": "./service",
 		"Events": "./utils/Events",
-		"messageltip": "../components/messagetip/js/messageltip"		
+		"messageltip": "../components/messagetip/js/messageltip"
 	},
 	shim: {
 		"jquery": {

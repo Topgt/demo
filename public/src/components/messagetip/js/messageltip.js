@@ -7,7 +7,8 @@ define([
 		require(["css!./bootstrap-3.3.5-dist/css/bootstrap.min.css", "css!../components/messagetip/css/messageltip.css"]);
 		function MessageModel(opt) {
 			var Imgurl = window.location.pathname;
-			Imgurl = Imgurl.slice(0, Imgurl.indexOf('/Hb/'));
+			console.log(Imgurl);
+			Imgurl = Imgurl.slice(0, Imgurl.indexOf('/views'));
 			if(!$('#Messageltip').length) {
 				html = html.replace(/img src="/g, "img src=\"" + Imgurl);
 				$('body').append($('<div></div>').append(html));
