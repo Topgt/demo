@@ -1,2 +1,2 @@
 # demo
-gulp + rquirejs 
+> gulp + rquirejs + r.js
