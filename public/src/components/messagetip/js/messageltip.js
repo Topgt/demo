@@ -1,5 +1,5 @@
 define([
-		"text!../components/messagetip/messageltip.html",		
+		"text!../components/messagetip/messageltip.html!script",		
 		"Events"
 	],
 	function(html, Events) {
