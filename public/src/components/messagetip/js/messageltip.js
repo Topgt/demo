@@ -20,12 +20,14 @@ define([
 			};
 			$.extend(option, opt);
 			this.model = $('#Messageltip').modal(option);
+			this.a = 10;
 		}
 
 		MessageModel.prototype.constructor = "MessageModel";
 		MessageModel.prototype.setTxt = function(txt) {
 			this.model.find('.txt').html(txt);
 		};
+		MessageModel.prototype.a = 10;
 		MessageModel.prototype.setPoint = function(xx, yy) {
 			var x = xx || 'auto';
 			var y = yy || 'auto';
@@ -38,6 +40,12 @@ define([
 			this.setTxt(txt);
 			this.model.modal('show');
 		};
-
-		return MessageModel;
+		
+		function Exports(){
+			var model = new MessageModel();
+			this.show = function(t){model.show(t)};
+		}
+		
+//		return MessageModel;
+		return Exports;
 	});

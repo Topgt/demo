@@ -1,4 +1,4 @@
-define(["jquery", "messageltip", "Events"], function($, MessageModel, Events) {
+define(["jquery", "messageltip", "header", "Events"], function($, MessageModel, Header, Events) {
 	console.log("导入了login.js模块");
 	function LoginModel() {
 		this.$model = $('#login');
@@ -7,9 +7,8 @@ define(["jquery", "messageltip", "Events"], function($, MessageModel, Events) {
 	LoginModel.prototype.checkLogin = function() {
 		var namevalue = this.$model.find('input[name="userName"]').val();
 		var pwdvalue = this.$model.find('input[name="userPassword"]').val();
-
 		if(!namevalue) {
-			var msgmodel = new MessageModel();
+			var msgmodel = new MessageModel();			
 			msgmodel.show('提示信息');
 			console.log("用户名为空");
 		}
@@ -37,8 +36,13 @@ define(["jquery", "messageltip", "Events"], function($, MessageModel, Events) {
 			_this.checkLogin();
 		});
 	};
+	LoginModel.prototype.loadHeader = function(){
+		var headModel = new Header();
+		$('#header').html(headModel.init());
+	}
 
 	LoginModel.prototype.lanch = function() {
+		this.loadHeader();
 		this.bindEvent();
 	};
 

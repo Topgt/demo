@@ -20,19 +20,19 @@ define(function() {
 
 		function on(evt, handler) {
 			events[evt] = events[evt] || [];
-			events[evt][0] = false;  // false表示始终监听evt事件
+			/*events[evt][0] = false;  // false表示始终监听evt事件*/
 			events[evt].push({
 				handler: handler
 			})
 		}
 				
-		function onOne(evt, handler) {
+/*		function onOne(evt, handler) {
 			events[evt] = events[evt] || [];
 			events[evt][0] = true;  // true表示始终只监听evt事件一次
 			events[evt].push({
 				handler: handler
 			})
-		}
+		}*/
 
 		function fire(evt, args) {
 			if(!events[evt]) {
@@ -42,16 +42,16 @@ define(function() {
 			for(var i = 1; i < events[evt].length; i++) {
 				events[evt][i].handler(args);
 			}
-			//true表示只监听此事件一次，执行完删除该事件
+			/*//true表示只监听此事件一次，执行完删除该事件
 			if(events[evt][0]){
 				delete events[evt];
-			}
+			}*/
 		}
 
 		return {
+//			onOne: onOne,
 			on: on,
-			fire: fire,
-			onOne: onOne
+			fire: fire			
 		}
 	})();
 

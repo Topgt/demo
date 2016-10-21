@@ -12,9 +12,9 @@ require.config({
 		"jquery": ["./jquery/jquery-2.1.4.min"],
 		"bootstrap": ["./bootstrap-3.3.5-dist/js/bootstrap.min"],
 		"login": ["../views/login/js/login"],
-		"messageltip": ["../components/messagetip/js/messageltip"]
+		"messageltip": ["../components/messagetip/js/messageltip"],
+		"header": ["../components/header/js/header"]
 	},
-	waitSeconds: 0,
 	shim: {
 		"jquery": {
 			exports: '$'
@@ -32,6 +32,14 @@ require.config({
 
 			],
 			exports: 'messageltip'
+		},
+		"Header": {
+			deps: [
+				"jquery",
+				"bootstrap"
+
+			],
+			exports: 'Header'
 		}
 	}
 });
