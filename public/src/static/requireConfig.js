@@ -1,5 +1,7 @@
 require.config({
-	baseUrl: "http://127.0.0.1:8020/demo/public/src/static",
+	// baseUrl: "http://127.0.0.1:8020/demo/public/src/static",
+	// baseUrl: "http://127.0.0.1:8020/src/static",
+	baseUrl: "../../static",
 	map: {
 		"*": {}
 	},
