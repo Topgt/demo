@@ -1,5 +1,7 @@
 require.config({
-	baseUrl: "http://127.0.0.1:8020/demo/public/src/static",
+	
+//	baseUrl: "http://127.0.0.1:8020/demo/public/src/static",
+	baseUrl: "../../static",
 	map: {
 		"*": {}
 	},
@@ -13,7 +15,8 @@ require.config({
 		"bootstrap": ["./bootstrap-3.3.5-dist/js/bootstrap.min"],
 		"login": ["../views/login/js/login"],
 		"messageltip": ["../components/messagetip/js/messageltip"],
-		"header": ["../components/header/js/header"]
+		"header": ["../components/header/js/header"],
+		"list": ["../views/list/js/list"]
 	},
 	shim: {
 		"jquery": {
