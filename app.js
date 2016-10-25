@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var db = require('./routes/db');
 
 var app = express();
 
@@ -31,6 +32,12 @@ app.use('/src/views/login/**/*.html',function(req, res, next){
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/db', db);
+
+// app.use('', function(req, res, next) {
+//   next();  
+// });
+
 
 //公共的资源，可直接在地址栏中请求
 app.use(express.static(path.join(__dirname, 'public')));
