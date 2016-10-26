@@ -9,6 +9,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var db = require('./routes/db');
 
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 var app = express();
 
 // view engine setup
@@ -22,21 +25,38 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+//配置session
+app.use(cookieParser('keyboardcat'));
+app.use(session({
+    cookie: { maxAge: 60*1000 },
+    secret: 'session',
+    key : 'sid',
+    resave: true,
+    saveUninitialized: true
+}));
+
 //过滤器权限分配
-app.use('/src/views/login/**/*.html',function(req, res, next){
-	if(true){
-		res.send('没有权限');
-	}
-	next();
+app.use(/(.)*/,function(req, res, next){
+  var url = req.originalUrl;
+  var reg = /\/src\/views\/login\//;
+  var check = req.session.check;
+  console.log(req.session);
+	if(check){
+    res.send('agran');
+		next();
+	}else if(reg.test(url)){
+    req.session.check = true;
+    res.send('first');
+    next();
+  }
+  res.send('没有权限');	
 });
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/db', db);
 
-// app.use('', function(req, res, next) {
-//   next();  
-// });
+
 
 
 //公共的资源，可直接在地址栏中请求
