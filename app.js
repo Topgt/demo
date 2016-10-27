@@ -23,11 +23,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //过滤器权限分配
-app.use('/src/views/login/**/*.html',function(req, res, next){
-	if(true){
+///^(\/src\/views\/)^(login\/)(.*)/
+app.use(/(\/src\/views\/)(.*)/,function(req, res, next){
+	var url = req.originalUrl;
+	var reg = /^(\/src\/views\/login\/)/;
+	if(reg.test(url)){
+		next();
+	}else{
 		res.send('没有权限');
 	}
-	next();
+	
 });
 
 app.use('/', routes);
