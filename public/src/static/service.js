@@ -14,7 +14,7 @@ define(["login"],
 		var LoginModel = (function(model) {
 			model.prototype.type = "post";
 			model.prototype.url = {
-				checkLogin: '/user/info'
+				checkLogin: '/sing'
 			};
 			model.prototype.fielMap = {
 				id: 'id',

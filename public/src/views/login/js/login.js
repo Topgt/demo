@@ -13,8 +13,8 @@ define(["jquery", "messageltip", "header", "Events"], function($, MessageModel, 
 			console.log("用户名为空");
 		}
 		var data = {};
-		data[this.fielMap.loginName] = namevalue;
-		data[this.fielMap.loginPwd] = pwdvalue;
+		data['name'] = namevalue;
+		data['pwd'] = pwdvalue;
 		$.when(
 			$.ajax({
 				type: this.type,
@@ -23,8 +23,9 @@ define(["jquery", "messageltip", "header", "Events"], function($, MessageModel, 
 				async: true
 			})
 		).done(function(result) {
-			_this.loginedTodo(result);
-		}).fail().then();
+			console.log(result);
+			// this.loginedTodo(result);
+		}.bind(this)).fail().then();
 	};
 	LoginModel.prototype.loginedTodo = function() {
 		console.log("登录成功");
