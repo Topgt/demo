@@ -37,23 +37,23 @@ app.use(session({
     saveUninitialized: true
 }));
 
-//过滤器权限分配
-// app.use(/(.)*/, function(req, res, next) {
-//     var url = req.originalUrl;
-//     var reg = /\/src\/views\/login\//;
-//     var check = req.session.check;
-//     // console.log(req.session);
-//     if (check) {
-//         next();
-//     } else if (reg.test(url)) {
-//         // req.session.check = true;
-//         next();
-//     } else {
-//         var err = new Error('没有权限');
-//         err.status = 444;
-//         next(err);
-//     }
-// });
+// 过滤器权限分配
+app.use(/(.)*/, function(req, res, next) {
+    var url = req.originalUrl;
+    var reg = /\/src\/views\/login\//;
+    var check = req.session.check;
+    // console.log(req.session);
+    if (check) {
+        next();
+    } else if (reg.test(url)) {
+        // req.session.check = true;
+        next();
+    } else {
+        var err = new Error('没有权限');
+        err.status = 444;
+        next(err);
+    }
+});
 
 app.use('/', routes);
 app.use('/users', users);
@@ -64,7 +64,7 @@ app.use('/db', db);
 
 
 //公共的资源，可直接在地址栏中请求
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'web')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
